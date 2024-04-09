@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  redis-instance:
+    image: bitnami/redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    command: /opt/bitnami/scripts/redis/run.sh --maxmemory 100mb
+    ports:
+      - "6379:6379"
