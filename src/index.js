@@ -13,8 +13,8 @@ const fastifyPluginRegistration = async (fastify) => {
       password: "123",
     });
   } catch (err) {
-    // Handle error
     console.error(err);
+    throw err;
   }
 
   fastify.get("/", async (request, reply) => {
@@ -35,4 +35,6 @@ const start = async () => {
   }
 };
 
-start();
+start().catch((err) => {
+  console.error("Unexpected error");
+});
