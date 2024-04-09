@@ -34,7 +34,7 @@ async function start() {
     await fastifyPluginRegistration(fastify);
   } catch (err) {
     fastify.log.error("There was an error registering plugins");
-    throw err;
+    throw new Error("Error registering plugins");
   }
 
   try {
