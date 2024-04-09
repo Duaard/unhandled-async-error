@@ -22,7 +22,7 @@ async function start() {
       });
     } catch (err) {
       console.error("Registering Redis error");
-      throw err;
+      throw new Error("Error registering Redis");
     }
 
     fastify.get("/", async (request, reply) => {
